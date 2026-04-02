@@ -4,11 +4,11 @@ module "ec2_instance" {
 
   name = "workstation-eksctl"
   ami = data.aws_ami.centos8.id
-  instance_type          = "t3.small"
+  instance_type          = "t2.micro"
   #key_name               = "user1"
   #monitoring             = true
   vpc_security_group_ids = [aws_security_group.allow_eksctl.id]
-  subnet_id              = "subnet-0b45f0bff4b0fa3a8" #replace your default subnet id
+  subnet_id              = "subnet-0bd83eda9c027971c" #replace your default subnet id
   user_data = file("workstation.sh")
   tags = {
     Terraform   = "true"
